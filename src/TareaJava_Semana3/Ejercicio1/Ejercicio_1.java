@@ -103,8 +103,8 @@ public class Ejercicio_1 {
 		txtDesc.setBounds(147, 232, 243, 55);
 		frame.getContentPane().add(txtDesc);
 		
-		JButton button = new JButton("Aceptar");
-		button.addActionListener(new ActionListener() {
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false){
@@ -125,8 +125,8 @@ public class Ejercicio_1 {
 				
 			}
 		});
-		button.setBounds(346, 336, 107, 23);
-		frame.getContentPane().add(button);
+		btnGuardar.setBounds(346, 336, 107, 23);
+		frame.getContentPane().add(btnGuardar);
 		
 	}
 }
