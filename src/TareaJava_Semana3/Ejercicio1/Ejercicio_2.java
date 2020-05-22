@@ -1,30 +1,18 @@
 package TareaJava_Semana3.Ejercicio1;
 
-import java.awt.EventQueue;
-
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.BorderLayout;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import java.awt.GridLayout;
-import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import java.awt.Panel;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
-import java.awt.Color;
-import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 
-public class Ejercicio_2 {
+public class Ejercicio_2 extends JFrame {
 
-	private JFrame frame;
+//	private JFrame frame;
 	private JTextField txtValor1;
 	private JTextField txtValor2;
 
@@ -36,7 +24,7 @@ public class Ejercicio_2 {
 			public void run() {
 				try {
 					Ejercicio_2 window = new Ejercicio_2();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,10 +43,10 @@ public class Ejercicio_2 {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 547, 349);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		
+		setBounds(100, 100, 547, 349);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("C\u00E1lculo de \u00C1reas");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -127,7 +115,7 @@ public class Ejercicio_2 {
 		
 		JButton btnNewButton = new JButton("Calcular");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent e) {
 				if(cboFiguras.getSelectedItem()=="Triangulo") {
 					
 					Triangulo triangulo = new Triangulo();
@@ -144,14 +132,16 @@ public class Ejercicio_2 {
 				}
 			}
 		});
+
 		btnNewButton.setBounds(345, 159, 110, 74);
-		frame.getContentPane().add(lblNewLabel);
-		frame.getContentPane().add(lblNewLabel_1);
-		frame.getContentPane().add(cboFiguras);
-		frame.getContentPane().add(lblValor1);
-		frame.getContentPane().add(lblValor2);
-		frame.getContentPane().add(txtValor1);
-		frame.getContentPane().add(txtValor2);
-		frame.getContentPane().add(btnNewButton);
+		getContentPane().add(lblNewLabel);
+		getContentPane().add(lblNewLabel_1);
+		getContentPane().add(cboFiguras);
+		getContentPane().add(lblValor1);
+		getContentPane().add(lblValor2);
+		getContentPane().add(txtValor1);
+		getContentPane().add(txtValor2);
+		getContentPane().add(btnNewButton);
 	}
+
 }

@@ -41,15 +41,24 @@ public class Ejercicio_3 extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnEjercicio1 = new JButton("Ejercicio 1");
+		btnEjercicio1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Ejercicio_1 ej1 = new Ejercicio_1();
+				ej1.setVisible(true);
 			}
 		});
-		contentPane.add(btnNewButton, BorderLayout.NORTH);
+		contentPane.add(btnEjercicio1, BorderLayout.NORTH);
 		
-		JButton button = new JButton("New button");
-		contentPane.add(button, BorderLayout.SOUTH);
+		JButton btnEjercicio2 = new JButton("Ejercicio 2");
+		btnEjercicio2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			Ejercicio_2 ej2 = new Ejercicio_2();
+			ej2.setVisible(true);
+				
+			}
+		});
+		contentPane.add(btnEjercicio2, BorderLayout.SOUTH);
 	}
 
 }

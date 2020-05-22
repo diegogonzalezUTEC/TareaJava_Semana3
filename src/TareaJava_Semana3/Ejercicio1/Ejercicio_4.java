@@ -1,6 +1,7 @@
 package TareaJava_Semana3.Ejercicio1;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.*;
 import javax.swing.JFrame;
@@ -8,11 +9,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
-public class Ejercicio_1 extends JFrame {
+import java.util.*;
+public class Ejercicio_4 extends JFrame {
 
 	private JPanel contentPane;
-
+	LinkedList lista = new LinkedList();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -20,7 +22,7 @@ public class Ejercicio_1 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ejercicio_1 frame = new Ejercicio_1();
+					Ejercicio_4 frame = new Ejercicio_4();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,9 +34,10 @@ public class Ejercicio_1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ejercicio_1() {
+	public Ejercicio_4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 549, 339);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -81,11 +84,23 @@ public class Ejercicio_1 extends JFrame {
 		txtDesc.setBounds(208, 182, 221, 74);
 		getContentPane().add(txtDesc);
 		
+		
+		JLabel lblLista = new JLabel("Lista de Personas");
+		lblLista.setBounds(208, 250, 221, 74);;
+		getContentPane().add(lblLista);
+		
+		JList listaPersona = new JList();
+		listaPersona.setBounds(208,300, 221, 74);
+		//listaPersona.setBackground(Color.BLACK);
+		getContentPane().add(listaPersona);
+		
+		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//copiado
-
+						
+				
 						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false){
 							JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
 						}else {
@@ -94,15 +109,26 @@ public class Ejercicio_1 extends JFrame {
 							if(rdFemenino.isSelected()) {
 								System.out.println("Sexo: Femenino");
 								System.out.println("Descripción: " + txtDesc.getText());
+								Persona p = new Persona(txtNombre.getText(), txtApellido.getText(), "Femenino", txtDesc.getText());
+								lista.add(p);
+								
 								JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Femenino" + "\n" + "Descripción: " + txtDesc.getText());
 							}else if(rdMasculino.isSelected()) {
 								System.out.println("Sexo: Masculino");
 								System.out.println("Descripción: " + txtDesc.getText());
+								
+								Persona p = new Persona(txtNombre.getText(), txtApellido.getText(), "Masculino", txtDesc.getText());
+								lista.add(p);
 								JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Masculino" + "\n" + "Descripción: " + txtDesc.getText());
 							}
 						}
+						
+						listaPersona.setListData(lista.toArray());
 			}
 		});
+		
+		
+		
 		btnGuardar.setBounds(340, 267, 89, 23);
 		contentPane.add(btnGuardar);
 		
