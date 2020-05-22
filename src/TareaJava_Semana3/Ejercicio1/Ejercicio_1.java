@@ -1,24 +1,15 @@
 package TareaJava_Semana3.Ejercicio1;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.FlowLayout;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import java.awt.event.ActionListener;
+import javax.swing.border.EmptyBorder;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
-
-public class Ejercicio_1 {
+import java.awt.event.ActionListener;
+public class Ejercicio_1 extends JFrame {
 
 	private JFrame frame;
 	private JTextField txtNombre;
@@ -105,8 +96,7 @@ public class Ejercicio_1 {
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
+			public void actionPerformed(ActionEvent e) {
 				if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false){
 					JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
 				}else {
@@ -122,11 +112,12 @@ public class Ejercicio_1 {
 						JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Masculino" + "\n" + "Descripción: " + txtDesc.getText());
 					}
 				}
-				
 			}
 		});
+
 		btnGuardar.setBounds(346, 336, 107, 23);
 		frame.getContentPane().add(btnGuardar);
 		
 	}
+
 }
