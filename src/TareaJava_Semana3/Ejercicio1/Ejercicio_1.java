@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.lang.*;
 public class Ejercicio_1 extends JFrame {
 
 	private JPanel contentPane;
@@ -23,7 +23,7 @@ public class Ejercicio_1 extends JFrame {
 					Ejercicio_1 frame = new Ejercicio_1();
 					frame.setVisible(true);
 				} catch (Exception e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, e.getMessage());
 				}
 			}
 		});
@@ -32,9 +32,9 @@ public class Ejercicio_1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ejercicio_1() {
+	public Ejercicio_1(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 549, 339);
+		setBounds(100, 100, 575, 364);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -86,7 +86,8 @@ public class Ejercicio_1 extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//copiado
 
-						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false){
+						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false || txtDesc.getText().equals("")){
+							//throw new Exception ("Debe completar los datos requeridos");
 							JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
 						}else {
 							System.out.println("Nombre: " + txtNombre.getText() + "\n" +

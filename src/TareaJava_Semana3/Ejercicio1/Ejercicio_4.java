@@ -24,6 +24,7 @@ public class Ejercicio_4 extends JFrame {
 				try {
 					Ejercicio_4 frame = new Ejercicio_4();
 					frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,7 +37,7 @@ public class Ejercicio_4 extends JFrame {
 	 */
 	public Ejercicio_4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 549, 339);
+		setBounds(100, 100, 575, 500);
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -97,11 +98,9 @@ public class Ejercicio_4 extends JFrame {
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//copiado
-						
+			public void actionPerformed(ActionEvent e) {						
 				
-						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false){
+						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false || txtDesc.getText().equals("")){
 							JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
 						}else {
 							System.out.println("Nombre: " + txtNombre.getText() + "\n" +
@@ -110,9 +109,14 @@ public class Ejercicio_4 extends JFrame {
 								System.out.println("Sexo: Femenino");
 								System.out.println("Descripción: " + txtDesc.getText());
 								Persona p = new Persona(txtNombre.getText(), txtApellido.getText(), "Femenino", txtDesc.getText());
-								lista.add(p);
 								
+								lista.add(p);
 								JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Femenino" + "\n" + "Descripción: " + txtDesc.getText());
+								
+								txtNombre.setText("");
+								txtApellido.setText("");
+								txtDesc.setText("");
+								
 							}else if(rdMasculino.isSelected()) {
 								System.out.println("Sexo: Masculino");
 								System.out.println("Descripción: " + txtDesc.getText());
@@ -120,6 +124,9 @@ public class Ejercicio_4 extends JFrame {
 								Persona p = new Persona(txtNombre.getText(), txtApellido.getText(), "Masculino", txtDesc.getText());
 								lista.add(p);
 								JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Masculino" + "\n" + "Descripción: " + txtDesc.getText());
+								txtNombre.setText("");
+								txtApellido.setText("");
+								txtDesc.setText("");
 							}
 						}
 						
