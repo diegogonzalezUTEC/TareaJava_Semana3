@@ -84,30 +84,40 @@ public class Ejercicio_1 extends JFrame {
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//copiado
-
-						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false || txtDesc.getText().equals("")){
+				
+				//		if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false || txtDesc.getText().equals("")){
 							//throw new Exception ("Debe completar los datos requeridos");
-							JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
-						}else {
-							System.out.println("Nombre: " + txtNombre.getText() + "\n" +
-											"Apellido: " + txtApellido.getText());
-							if(rdFemenino.isSelected()) {
-								System.out.println("Sexo: Femenino");
-								System.out.println("Descripción: " + txtDesc.getText());
-								JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Femenino" + "\n" + "Descripción: " + txtDesc.getText());
-							}else if(rdMasculino.isSelected()) {
-								System.out.println("Sexo: Masculino");
-								System.out.println("Descripción: " + txtDesc.getText());
-								JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Masculino" + "\n" + "Descripción: " + txtDesc.getText());
-							}
-						}
+						//	JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
+						//}else {
+				try {
+					esVacio(txtNombre, txtApellido, rdFemenino, rdMasculino,txtDesc);
+					System.out.println("Nombre: " + txtNombre.getText() + "\n" +
+									"Apellido: " + txtApellido.getText());
+					if(rdFemenino.isSelected()) {
+						System.out.println("Sexo: Femenino");
+						System.out.println("Descripción: " + txtDesc.getText());
+						JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Femenino" + "\n" + "Descripción: " + txtDesc.getText());
+					}else if(rdMasculino.isSelected()) {
+						System.out.println("Sexo: Masculino");
+						System.out.println("Descripción: " + txtDesc.getText());
+						JOptionPane.showMessageDialog(null, "Nombre: " + txtNombre.getText() + "\n" + "Apellido: " + txtApellido.getText() + "\n" + "Sexo: Masculino" + "\n" + "Descripción: " + txtDesc.getText());
+					}
+				}catch(Exception e2) {
+					JOptionPane.showMessageDialog(null, e2.getMessage());
+				}
+							
+						
 			}
 		});
 		btnGuardar.setBounds(340, 267, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		
+	}
+	public void esVacio(JTextField nom, JTextField ape, JRadioButton fem, JRadioButton masc, JTextArea txtDesc) throws Exception{
+		if (nom.getText().equals("") || ape.getText().equals("") || fem.isSelected() == false && masc.isSelected() == false || txtDesc.getText().equals("")) {
+			throw new Exception("Debe completar los datos requeridos");
+		}	
 	}
 
 }
