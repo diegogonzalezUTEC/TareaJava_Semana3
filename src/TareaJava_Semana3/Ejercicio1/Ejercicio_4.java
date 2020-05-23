@@ -100,9 +100,12 @@ public class Ejercicio_4 extends JFrame {
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {						
 				
-						if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false || txtDesc.getText().equals("")){
+						/*if(txtNombre.getText().equals("") || txtApellido.getText().equals("") || rdFemenino.isSelected() == false && rdMasculino.isSelected() == false || txtDesc.getText().equals("")){
 							JOptionPane.showMessageDialog(null, "Debe completar los datos requeridos");
-						}else {
+						}else {*/
+				try {
+					esVacio(txtNombre, txtApellido, rdFemenino, rdMasculino, txtDesc);
+					
 							System.out.println("Nombre: " + txtNombre.getText() + "\n" +
 											"Apellido: " + txtApellido.getText());
 							if(rdFemenino.isSelected()) {
@@ -128,9 +131,12 @@ public class Ejercicio_4 extends JFrame {
 								txtApellido.setText("");
 								txtDesc.setText("");
 							}
-						}
+						//}
 						
 						listaPersona.setListData(lista.toArray());
+				}catch(Exception ex) {
+					JOptionPane.showMessageDialog(null, ex.getMessage());
+				}
 			}
 		});
 		
@@ -141,5 +147,10 @@ public class Ejercicio_4 extends JFrame {
 		
 		
 	}
+		public void esVacio(JTextField nom, JTextField ape, JRadioButton fem, JRadioButton masc, JTextArea txtDesc) throws Exception {		
+			if (nom.getText().equals("") || ape.getText().equals("") || fem.isSelected() == false && masc.isSelected() == false || txtDesc.getText().equals("")) {
+				throw new Exception("Debe completar los datos requeridos");
+			}		
+		}
 
 }
